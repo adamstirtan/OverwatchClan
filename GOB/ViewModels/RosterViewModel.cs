@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-using GOB.Models;
+using Clan.ObjectModel;
 
-namespace GOB.ViewModels
+namespace Clan.Web.ViewModels
 {
     public class RosterViewModel : BaseViewModel
     {

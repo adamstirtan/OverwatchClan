@@ -7,9 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-using GOB.Data;
+using Clan.Web.Database;
 
-namespace GOB
+namespace Clan.Web
 {
     public class Startup
     {

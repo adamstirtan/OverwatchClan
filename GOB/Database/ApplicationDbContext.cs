@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using GOB.Models;
+using Clan.ObjectModel;
 
-namespace GOB.Data
+namespace Clan.Web.Database
 {
     public class ApplicationDbContext : DbContext
     {

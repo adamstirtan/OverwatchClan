@@ -1,4 +1,4 @@
-namespace GOB.Models
+namespace Clan.ObjectModel
 {
     public class Role : BaseEntity
     {

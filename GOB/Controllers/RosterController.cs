@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 
-using GOB.Models;
-using GOB.ViewModels;
+using Clan.ObjectModel;
+using Clan.Web.ViewModels;
 
 namespace GOB.Controllers
 {

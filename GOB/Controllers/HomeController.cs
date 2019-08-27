@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-using GOB.ViewModels;
+using Clan.Web.ViewModels;
 
-namespace GOB.Controllers
+namespace Clan.Web.Controllers
 {
     public class HomeController : Controller
     {

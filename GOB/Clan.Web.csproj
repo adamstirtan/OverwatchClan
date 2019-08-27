@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <UserSecretsId>aspnet-GOB-3AD753E3-CC72-4BF7-8E4C-C7006B57E1D6</UserSecretsId>
+    <UserSecretsId>aspnet-Clan-3AD753E3-CC72-4BF7-8E4C-C7006B57E1D6</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +14,10 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\js\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Clan.ObjectModel\Clan.ObjectModel.csproj" />
   </ItemGroup>
 
 </Project>

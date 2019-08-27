@@ -1,6 +1,6 @@
 using System;
 
-namespace GOB.Models
+namespace Clan.ObjectModel
 {
     public class Event : BaseEntity
     {
