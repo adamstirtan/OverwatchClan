@@ -2,3 +2,6 @@
 .vscode/
 **/bin/
 **/obj
+
+/Clan.Web/appsettings.json
+/Clan.Web/Properties/launchSettings.json

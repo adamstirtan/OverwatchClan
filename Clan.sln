@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clan.Web", "GOB\Clan.Web.csproj", "{6207C6CB-7AFC-463F-A304-E33F4F97416D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clan.Web", "Clan.Web\Clan.Web.csproj", "{6207C6CB-7AFC-463F-A304-E33F4F97416D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clan.ObjectModel", "Clan.ObjectModel\Clan.ObjectModel.csproj", "{5746D85B-9C92-4C9E-9C13-75BCF03E843B}"
 EndProject
