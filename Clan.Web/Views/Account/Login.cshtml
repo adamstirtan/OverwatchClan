@@ -1,6 +1,12 @@
-﻿@{
+﻿@using Newtonsoft.Json
+
+@model Clan.Web.ViewModels.LoginViewModel
+
+@{
     Layout = null;
 }
+
+@{ var data = JsonConvert.SerializeObject(Model); }
 
 <!DOCTYPE html>
 <html lang="en-ca">
@@ -13,13 +19,13 @@
     <link rel="stylesheet" type="text/css" href="~/css/login.css" />
 </head>
 <body>
-    <div class="ui middle aligned center aligned grid">
+    <div id="app" class="ui middle aligned center aligned grid">
         <div class="column">
-            <div class="ui raised segment">
+            <h3 class="ui top attached left aligned header">
+                Sign in to continue
+            </h3>
+            <div class="ui attached segment">
                 <form class="ui padded form">
-                    <h2 class="ui left aligned header">
-                        Sign in to continue
-                    </h2>
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
@@ -36,10 +42,15 @@
                     <div class="ui error message"></div>
                 </form>
             </div>
-            <div class="ui message">
+            <div class="ui bottom attached message">
                 Not a member yet? <a asp-controller="Account" asp-action="Register">Join the clan</a>
             </div>
         </div>
     </div>
+    <script src="~/js/LoginViewModel.js"></script>
+    <script type="text/javascript">
+        var viewModel = new LoginViewModel(@Html.Raw(data));
+        ko.applyBindings(viewModel, document.getElementById("app"));
+    </script>
 </body>
 </html>

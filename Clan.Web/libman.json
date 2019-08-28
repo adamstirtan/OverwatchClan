@@ -3,8 +3,16 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
       "library": "fomantic-ui@2.7.7",
       "destination": "wwwroot/lib/fomantic-ui/"
+    },
+    {
+      "library": "knockout@3.5.0",
+      "destination": "wwwroot/lib/knockout"
     }
   ]
 }

@@ -30,6 +30,7 @@ namespace Clan.Web
                 options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
             }, ServiceLifetime.Transient);
 
+            services.AddScoped<DbContext, ApplicationDbContext>();
             services.AddTransient<IEventRepository, EventRepository>();
             services.AddTransient<IMemberRepository, MemberRepository>();
             services.AddTransient<IUserRepository, UserRepository>();

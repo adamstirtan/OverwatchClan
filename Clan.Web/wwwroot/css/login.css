@@ -1,5 +1,10 @@
 ﻿body {
-    background-color: #DADADA;
+    background-color: #000;
+    background: radial-gradient(transparent 30%, black), url("../images/login.jpg") !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    position: relative;
 }
 
     body > .grid {
@@ -12,4 +17,8 @@
 
 .column {
     max-width: 450px;
+}
+
+form {
+    padding: 1rem;
 }
