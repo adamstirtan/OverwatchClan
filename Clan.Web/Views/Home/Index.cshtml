@@ -7,54 +7,28 @@
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
-
-    <!-- Meta information -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-    <!-- Title -->
     <title>GTA Overwatch Bros</title>
-
-    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="~/lib/fomantic-ui/semantic.min.css" />
     <link rel="stylesheet" type="text/css" href="~/css/home.css" />
 </head>
 <body>
-
-    <!-- Following menu -->
-    <div class="ui large top fixed hidden menu">
-        <div class="ui container">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="item">Home</a>
-            <a class="item">Schedule</a>
-            <a class="item">Roster</a>
-            <div class="right menu">
-                <div class="item">
-                    <a class="ui button">Sign in</a>
-                </div>
-                <div class="item">
-                    <a class="ui primary button">Create account</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="ui inverted vertical masthead center aligned segment">
-
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
                 <a class="toc item">
                     <i class="sidebar icon"></i>
                 </a>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="active item">Home</a>
-                <a asp-area="" asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
-                <a asp-area="" asp-controller="Roster" asp-action="Index" class="item">Roster</a>
+                <a asp-controller="Home" asp-action="Index" class="active item">Home</a>
+                <a asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
+                <a asp-controller="Roster" asp-action="Index" class="item">Roster</a>
                 <div class="right item">
-                    <a asp-area="Identity" asp-page="/Account/Register" class="ui inverted green button">Join the clan</a>
+                    <a asp-controller="Account" asp-action="Register" class="ui inverted green button">Join the clan</a>
                 </div>
             </div>
         </div>
-
         <div class="ui right aligned container">
             <h1 class="ui inverted header">
                 <span>GTA Overwatch Bros</span>
@@ -63,14 +37,14 @@
                 <span>Exclusive clan of 25+ from the GTA</span>
             </h2>
             <div class="ui basic segment">
-                <button class="ui large youtube button">
+                <a class="ui large youtube button" href="#" target="_blank">
                     <i class="youtube icon"></i>
                     YouTube
-                </button>
-                <button class="ui large instagram button">
+                </a>
+                <a class="ui large instagram button" href="#" target="_blank">
                     <i class="instagram icon"></i>
                     Instagram
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -95,7 +69,6 @@
             </div>
         </div>
     </div>
-
     <div class="ui inverted vertical footer segment">
         <div class="ui container">
             <div class="ui stackable inverted divided equal height stackable grid">

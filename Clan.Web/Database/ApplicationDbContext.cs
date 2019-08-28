@@ -10,8 +10,6 @@ namespace Clan.Web.Database
             : base(options)
         { }
 
-        public DbSet<Event> Events { get; set; }
-        public DbSet<Member> Members { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

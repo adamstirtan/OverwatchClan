@@ -1,7 +1,45 @@
-﻿
-@{
-    ViewData["Title"] = "Login";
+﻿@{
+    Layout = null;
 }
 
-<h2>Login</h2>
-
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="~/lib/fomantic-ui/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/login.css" />
+</head>
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <div class="ui raised segment">
+                <form class="ui padded form">
+                    <h2 class="ui left aligned header">
+                        Sign in to continue
+                    </h2>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i>
+                            <input type="text" name="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="ui fluid primary button">Sign in</div>
+                    <div class="ui error message"></div>
+                </form>
+            </div>
+            <div class="ui message">
+                Not a member yet? <a asp-controller="Account" asp-action="Register">Join the clan</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -18,7 +18,7 @@ namespace GOB.Controllers
                 {
                     new Member
                     {
-                        Name = "Adam Stirtan",
+                        Name = "rhaydeo",
                         Email = "adam.stirtan@outlook.com",
                         Active = true,
                         BattleTag = "Rhaydeo#11799",
@@ -27,7 +27,7 @@ namespace GOB.Controllers
                     },
                     new Member
                     {
-                        Name = "Dave Forsyth",
+                        Name = "lewzer",
                         Email = "dave@gmail.com",
                         Active = true,
                         BattleTag = "lewzer#11799",
