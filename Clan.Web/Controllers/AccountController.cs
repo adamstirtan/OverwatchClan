@@ -17,5 +17,13 @@ namespace Clan.Web.Controllers
 
             return View(viewModel);
         }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            var viewModel = new RegisterViewModel();
+
+            return View(viewModel);
+        }
     }
 }

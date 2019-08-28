@@ -18,7 +18,7 @@
             <div class="ui raised segment">
                 <form class="ui padded form">
                     <h2 class="ui left aligned header">
-                        Sign in to continue
+                        Join the clan
                     </h2>
                     <div class="field">
                         <div class="ui left icon input">
@@ -32,12 +32,18 @@
                             <input type="password" name="password" placeholder="Password">
                         </div>
                     </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i>
+                            <input type="password" name="confirm" placeholder="Confirm password">
+                        </div>
+                    </div>
                     <div class="ui fluid primary button">Sign in</div>
                     <div class="ui error message"></div>
                 </form>
             </div>
             <div class="ui message">
-                Not a member yet? <a asp-controller="Account" asp-action="Register">Join the clan</a>
+                Already a member? <a asp-controller="Account" asp-action="Login">Sign in</a>
             </div>
         </div>
     </div>
