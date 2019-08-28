@@ -1,6 +1,12 @@
-﻿@{
+﻿@using Newtonsoft.Json
+
+@model Clan.Web.ViewModels.RegisterViewModel
+
+@{
     Layout = null;
 }
+
+@{ var data = JsonConvert.SerializeObject(Model); }
 
 <!DOCTYPE html>
 <html lang="en-ca">
@@ -13,13 +19,13 @@
     <link rel="stylesheet" type="text/css" href="~/css/login.css" />
 </head>
 <body>
-    <div class="ui middle aligned center aligned grid">
+    <div id="app" class="ui middle aligned center aligned grid">
         <div class="column">
-            <div class="ui raised segment">
-                <form class="ui padded form">
-                    <h2 class="ui left aligned header">
-                        Join the clan
-                    </h2>
+            <div class="ui attached left aligned segment">
+                <h3 class="ui header">
+                    Join the clan
+                </h3>
+                <form id="form-register" class="ui padded form">
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
@@ -38,14 +44,28 @@
                             <input type="password" name="confirm" placeholder="Confirm password">
                         </div>
                     </div>
-                    <div class="ui fluid primary button">Sign in</div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="tag icon"></i>
+                            <input type="text" name="battletag" placeholder="Battle tag">
+                        </div>
+                    </div>
                     <div class="ui error message"></div>
+                    <button class="ui fluid large blue button" id="button-join" data-bind="click: join">Join</button>
                 </form>
             </div>
-            <div class="ui message">
+            <div class="ui bottom attached message">
                 Already a member? <a asp-controller="Account" asp-action="Login">Sign in</a>
             </div>
         </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/fomantic-ui/semantic.js"></script>
+    <script src="~/lib/knockout/knockout-min.js"></script>
+    <script src="~/js/LoginViewModel.js"></script>
+    <script type="text/javascript">
+        var viewModel = new RegisterViewModel(@Html.Raw(data));
+        ko.applyBindings(viewModel, document.getElementById("app"));
+    </script>
 </body>
 </html>

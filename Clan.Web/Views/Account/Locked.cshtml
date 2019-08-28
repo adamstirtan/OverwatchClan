@@ -1,0 +1,36 @@
+﻿@using Newtonsoft.Json
+
+@model Clan.Web.ViewModels.LockedViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" type="text/css" href="~/lib/fomantic-ui/semantic.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/login.css" />
+</head>
+<body>
+    <div id="app" class="ui middle aligned center aligned grid">
+        <div class="column">
+            <div class="ui attached left aligned segment">
+                <h3 class="ui header">
+                    Your account is locked
+                </h3>
+                <p>Your account has been locked out because of too many failed login attempts. Contact an administrator to unlock your account and then consider changing your password.</p>
+            </div>
+            <div class="ui bottom attached message">
+                <a asp-controller="Account" asp-action="Login">Back to sign in</a>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/fomantic-ui/semantic.js"></script>
+</body>
+</html>

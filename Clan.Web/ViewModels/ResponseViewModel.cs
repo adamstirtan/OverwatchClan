@@ -1,8 +1,21 @@
-﻿namespace Clan.Web.ViewModels
+﻿using System.Net;
+
+namespace Clan.Web.ViewModels
 {
     public class ResponseViewModel : BaseViewModel
     {
-        public int Status { get; set; }
+        public ResponseViewModel(HttpStatusCode statusCode)
+        {
+            Status = (int)statusCode;
+
+            if (Status >= 200 && Status < 299)
+            {
+                Success = true;
+            }
+        }
+
+        public bool Success { get; set; }
+        public int Status { get; private set; }
         public string Redirect { get; set; }
     }
 }
