@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Clan.ObjectModel;
 using Clan.Web.ViewModels;
 
-namespace GOB.Controllers
+namespace Clan.Web.Controllers
 {
     public class RosterController : Controller
     {
@@ -14,9 +14,9 @@ namespace GOB.Controllers
         {
             var viewModel = new RosterViewModel
             {
-                Members = new List<Member>
+                Members = new List<User>
                 {
-                    new Member
+                    new User
                     {
                         Name = "rhaydeo",
                         Email = "adam.stirtan@outlook.com",
@@ -25,7 +25,7 @@ namespace GOB.Controllers
                         Created = DateTime.UtcNow,
                         Modified = DateTime.UtcNow
                     },
-                    new Member
+                    new User
                     {
                         Name = "lewzer",
                         Email = "dave@gmail.com",

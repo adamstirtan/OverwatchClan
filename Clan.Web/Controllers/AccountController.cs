@@ -38,7 +38,7 @@ namespace Clan.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
         {
             if (string.IsNullOrEmpty(model.Email))
             {
@@ -71,7 +71,12 @@ namespace Clan.Web.Controllers
 
                 _userRepository.Update(user);
 
-                return Json(new ResponseViewModel(HttpStatusCode.OK));
+                await SetCookieAsync(user.Email, model.RememberMe);
+
+                return Json(new ResponseViewModel(HttpStatusCode.OK)
+                {
+                    Redirect = string.IsNullOrEmpty(model.ReturnUrl) ? Url.Action("Index", "Schedule") : model.ReturnUrl
+                });
             }
             else
             {
@@ -114,6 +119,7 @@ namespace Clan.Web.Controllers
             {
                 Email = model.Email,
                 PasswordHash = PasswordHasher.Hash(model.Password),
+                BattleTag = model.BattleTag,
                 LastLogin = DateTime.UtcNow,
                 LockedOut = false,
                 FailedLoginAttempts = 0,

@@ -3,69 +3,60 @@
 @model Clan.Web.ViewModels.RegisterViewModel
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Account.cshtml";
 }
 
 @{ var data = JsonConvert.SerializeObject(Model); }
 
-<!DOCTYPE html>
-<html lang="en-ca">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" type="text/css" href="~/lib/fomantic-ui/semantic.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/login.css" />
-</head>
-<body>
-    <div id="app" class="ui middle aligned center aligned grid">
-        <div class="column">
-            <div class="ui attached left aligned segment">
-                <h3 class="ui header">
-                    Join the clan
-                </h3>
-                <form id="form-register" class="ui padded form">
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="password" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="lock icon"></i>
-                            <input type="password" name="confirm" placeholder="Confirm password">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui left icon input">
-                            <i class="tag icon"></i>
-                            <input type="text" name="battletag" placeholder="Battle tag">
-                        </div>
-                    </div>
-                    <div class="ui error message"></div>
-                    <button class="ui fluid large blue button" id="button-join" data-bind="click: join">Join</button>
-                </form>
-            </div>
-            <div class="ui bottom attached message">
-                Already a member? <a asp-controller="Account" asp-action="Login">Sign in</a>
-            </div>
-        </div>
-    </div>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/fomantic-ui/semantic.js"></script>
-    <script src="~/lib/knockout/knockout-min.js"></script>
-    <script src="~/js/LoginViewModel.js"></script>
+@section Scripts {
+    <script src="~/js/RegisterViewModel.js"></script>
     <script type="text/javascript">
         var viewModel = new RegisterViewModel(@Html.Raw(data));
         ko.applyBindings(viewModel, document.getElementById("app"));
     </script>
-</body>
-</html>
+}
+
+<div id="app" class="ui middle aligned center aligned grid">
+    <div class="column">
+        <div class="ui attached left aligned segment">
+            <h3 class="ui header">
+                Join the clan
+            </h3>
+            <form id="form-register" class="ui padded form">
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="user icon"></i>
+                        <input type="text" name="email" placeholder="Email" data-bind="textInput: Email">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="password" placeholder="Password" data-bind="textInput: Password">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="lock icon"></i>
+                        <input type="password" name="confirm" placeholder="Confirm password" data-bind="textInput: ConfirmPassword">
+                    </div>
+                </div>
+                <h5 class="ui header">
+                    Blizzard BattleTag
+                    <div class="sub header">Each BattleTag is assigned a numeric ID to create a unique identifier (for example, FallenSlayer#3592).</div>
+                </h5>
+                <div class="field">
+                    <div class="ui left icon input">
+                        <i class="tag icon"></i>
+                        <input type="text" name="battletag" placeholder="Blizzard BattleTag" data-bind="textInput: BattleTag">
+                    </div>
+                </div>
+                <div class="ui error message"></div>
+                <button id="button-register" class="ui fluid large blue button" data-bind="click: register">Join</button>
+            </form>
+        </div>
+        <div class="ui bottom attached message">
+            Already a member? <a asp-controller="Account" asp-action="Login">Sign in</a>
+        </div>
+    </div>
+</div>

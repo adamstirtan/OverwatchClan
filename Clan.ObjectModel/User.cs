@@ -9,5 +9,9 @@ namespace Clan.ObjectModel
         public DateTime? LastLogin { get; set; }
         public bool LockedOut { get; set; }
         public int FailedLoginAttempts { get; set; }
+        public string Name { get; set; }
+        public string BattleTag { get; set; }
+        public string ImageUrl { get; set; }
+        public bool Active { get; set; }
     }
 }

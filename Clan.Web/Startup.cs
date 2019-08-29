@@ -32,7 +32,6 @@ namespace Clan.Web
 
             services.AddScoped<DbContext, ApplicationDbContext>();
             services.AddTransient<IEventRepository, EventRepository>();
-            services.AddTransient<IMemberRepository, MemberRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
 
             services.AddRouting(options => options.LowercaseUrls = true);

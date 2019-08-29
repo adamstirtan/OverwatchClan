@@ -45,9 +45,9 @@
                     },
                     success: function (json, status, xhr) {
                         if (xhr.readyState === 4) {
-                            if (json.Status === 200) {
-                                window.location = json.Redirect;
-                            } else if (json.Status === 403) {
+                            if (json.status === 200) {
+                                window.location = json.redirect;
+                            } else if (json.status === 403) {
                                 window.location = "/account/locked";
                             } else {
                                 formLogin.form("add errors", ["Email or password was incorrect"]);
