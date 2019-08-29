@@ -10,29 +10,31 @@
     @RenderSection("Stylesheets", required: false)
 </head>
 <body>
-    <div class="ui vertical inverted sidebar menu">
-        <a class="active item">Home</a>
-        <a class="item">Work</a>
-        <a class="item">Company</a>
-        <a class="item">Careers</a>
-        <a class="item">Login</a>
-        <a class="item">Sign up</a>
+    <div id="header">
+        <div class="ui grid container">
+            <div class="column">
+                <h2 class="ui inverted header">
+                    <img src="~/images/logo.png">
+                    <div class="content">
+                        Overwatch Bros
+                        <div class="sub header">Don't you fucking forget it</div>
+                    </div>
+                </h2>
+            </div>
+        </div>
     </div>
-    <div class="ui top fixed inverted menu">
+    <div id="sub-header">
         <div class="ui container">
-            <a asp-controller="Home" asp-action="Index" class="item">Home</a>
-            <a class="item">Schedule</a>
-            <a class="active item">Roster</a>
-            <div class="right menu">
-                <div class="item">
-                    <a class="ui primary button">Create account</a>
+            <div class="ui secondary inverted menu">
+                <a asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
+                <a asp-controller="Roster" asp-action="Index" class="item">Roster</a>
+                <div class="right menu">
+                    <a asp-controller="Account" asp-action="LogOff" class="item">Sign out</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="pusher">
-        @RenderBody()
-    </div>
+    @RenderBody()
     @RenderSection("Scripts", required: false)
 </body>
 </html>
