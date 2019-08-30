@@ -1,8 +1,12 @@
-﻿@model Clan.Web.ViewModels.HomeViewModel
+﻿@using Newtonsoft.Json
+
+@model Clan.Web.ViewModels.HomeViewModel
 
 @{
     Layout = null;
 }
+
+@{ var data = JsonConvert.SerializeObject(Model); }
 
 <!DOCTYPE html>
 <html lang="en-ca">
@@ -15,87 +19,167 @@
     <link rel="stylesheet" type="text/css" href="~/css/home.css" />
 </head>
 <body>
-    <div class="ui inverted vertical masthead center aligned segment">
+    <div class="ui large top fixed borderless hidden menu">
         <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
-                <a class="toc item">
-                    <i class="sidebar icon"></i>
-                </a>
-                <a asp-controller="Home" asp-action="Index" class="active item">Home</a>
-                <a asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
-                <a asp-controller="Roster" asp-action="Index" class="item">Roster</a>
-                <div class="right item">
-                    <a asp-controller="Account" asp-action="Register" class="ui inverted green button">Join the clan</a>
+            <a asp-controller="Home" asp-index="Index" class="active item">Home</a>
+            <a asp-controller="Schedule" asp-index="Index" class="item">Schedule</a>
+            <a asp-controller="Roster" asp-index="Index" class="item">Members</a>
+            <div class="right menu">
+                <div class="item">
+                    <a class="ui button">Log in</a>
                 </div>
-            </div>
-        </div>
-        <div class="ui right aligned container">
-            <h1 class="ui inverted header">
-                <span>GTA Overwatch Bros</span>
-            </h1>
-            <h2 class="ui inverted header">
-                <span>Exclusive clan of 25+ from the GTA</span>
-            </h2>
-            <div class="ui basic segment">
-                <a class="ui large youtube button" href="#" target="_blank">
-                    <i class="youtube icon"></i>
-                    YouTube
-                </a>
-                <a class="ui large instagram button" href="#" target="_blank">
-                    <i class="instagram icon"></i>
-                    Instagram
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-            <div class="row">
-                <div class="eight wide column">
-                    <h3 class="ui header">We Help Companies and Companions</h3>
-                    <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
-                    <h3 class="ui header">We Make Bananas That Can Dance</h3>
-                    <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
-                </div>
-                <div class="six wide column">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tmtO8rzuLfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="row">
-                <div class="center aligned column">
-                    <a class="ui huge blue button">Join the clan</a>
+                <div class="item">
+                    <a class="ui primary button">Sign Up</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="ui inverted vertical footer segment">
-        <div class="ui container">
-            <div class="ui stackable inverted divided equal height stackable grid">
-                <div class="three wide column">
-                    <h4 class="ui inverted header">About</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item">Sitemap</a>
-                        <a href="#" class="item">Contact Us</a>
-                        <a href="#" class="item">Religious Ceremonies</a>
-                        <a href="#" class="item">Gazebo Plans</a>
+    <div class="ui vertical sidebar menu">
+        <a asp-controller="Home" asp-action="Index" class="active item">Home</a>
+        <a asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
+        <a asp-controller="Roster" asp-action="Index" class="item">Roster</a>
+        <a class="item">Login</a>
+        <a class="item">Signup</a>
+    </div>
+    <div id="app" class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing borderless menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a asp-controller="Home" asp-action="Index" class="active item">Home</a>
+                    <a asp-controller="Schedule" asp-action="Index" class="item">Schedule</a>
+                    <a asp-controller="Roster" asp-action="Index" class="item">Roster</a>
+                    <div class="right item">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-controller="Account" asp-action="Manage">@User.Identity.Name</a>
+                            <a asp-controller="Account" asp-action="LogOff" class="ui inverted button">Sign out</a>
+                        }
+                        else
+                        {
+                            <a asp-controller="Account" asp-action="Register" class="ui inverted button">Create account</a>
+                            <a asp-controller="Account" asp-action="Login" class="ui inverted button">Sign in</a>
+                        }
                     </div>
                 </div>
-                <div class="three wide column">
-                    <h4 class="ui inverted header">Services</h4>
-                    <div class="ui inverted link list">
-                        <a href="#" class="item">Banana Pre-Order</a>
-                        <a href="#" class="item">DNA FAQ</a>
-                        <a href="#" class="item">How To Access</a>
-                        <a href="#" class="item">Favorite X-Men</a>
+            </div>
+            <div class="ui right aligned container">
+                <h1 class="ui inverted header">
+                    <span>Halton Horde 🏅</span>
+                </h1>
+                <h2 class="ui inverted header">
+                    <span>Exclusive Overwatch clan</span>
+                </h2>
+                <div class="ui basic segment">
+                    <a class="ui large youtube button" href="#" target="_blank">
+                        <i class="youtube icon"></i>
+                        YouTube
+                    </a>
+                    <a class="ui large instagram button" href="#" target="_blank">
+                        <i class="instagram icon"></i>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="eight wide column">
+                        <h3 class="ui header">We Help Companies and Companions</h3>
+                        <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+                        <h3 class="ui header">We Make Bananas That Can Dance</h3>
+                        <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+                    </div>
+                    <div class="six wide column">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tmtO8rzuLfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="seven wide column">
-                    <h4 class="ui inverted header">Footer Header</h4>
-                    <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                <div class="row">
+                    <div class="center aligned column">
+                        <a class="ui huge blue button">Join the clan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="eight wide column">
+                        <h3 class="ui header">We Help Companies and Companions</h3>
+                        <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+                        <h3 class="ui header">We Make Bananas That Can Dance</h3>
+                        <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+                    </div>
+                    <div class="six wide column">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tmtO8rzuLfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center aligned column">
+                        <a class="ui huge blue button">Join the clan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+                <div class="row">
+                    <div class="eight wide column">
+                        <h3 class="ui header">We Help Companies and Companions</h3>
+                        <p>We can give your company superpowers to do things that they never thought possible. Let us delight your customers and empower your needs...through pure data analytics.</p>
+                        <h3 class="ui header">We Make Bananas That Can Dance</h3>
+                        <p>Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.</p>
+                    </div>
+                    <div class="six wide column">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tmtO8rzuLfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center aligned column">
+                        <a class="ui huge blue button">Join the clan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Sitemap</a>
+                            <a href="#" class="item">Contact Us</a>
+                            <a href="#" class="item">Religious Ceremonies</a>
+                            <a href="#" class="item">Gazebo Plans</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">Services</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Banana Pre-Order</a>
+                            <a href="#" class="item">DNA FAQ</a>
+                            <a href="#" class="item">How To Access</a>
+                            <a href="#" class="item">Favorite X-Men</a>
+                        </div>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui inverted header">Footer Header</h4>
+                        <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/fomantic-ui/semantic.js"></script>
+    <script src="~/lib/knockout/knockout-min.js"></script>
+    <script src="~/js/HomeViewModel.js"></script>
+    <script type="text/javascript">
+        var viewModel = new HomeViewModel(@Html.Raw(data));
+        ko.applyBindings(viewModel, document.getElementById("app"));
+    </script>
 </body>
 </html>

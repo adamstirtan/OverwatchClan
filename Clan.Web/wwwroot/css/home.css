@@ -2,6 +2,10 @@
     display: none;
 }
 
+.ui.secondary.pointing.menu {
+    border-bottom: 0;
+}
+
 .masthead.segment {
     min-height: 700px;
     padding: 1em 0em;

@@ -119,7 +119,6 @@ namespace Clan.Web.Controllers
             {
                 Email = model.Email,
                 PasswordHash = PasswordHasher.Hash(model.Password),
-                BattleTag = model.BattleTag,
                 LastLogin = DateTime.UtcNow,
                 LockedOut = false,
                 FailedLoginAttempts = 0,

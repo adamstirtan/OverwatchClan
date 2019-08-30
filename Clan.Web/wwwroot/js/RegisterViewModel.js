@@ -8,20 +8,19 @@
     self.Email = ko.observable(data.Email);
     self.Password = ko.observable(data.Password);
     self.ConfirmPassword = ko.observable(data.ConfirmPassword);
-    self.BattleTag = ko.observable(data.BattleTag);
 
     self.init = function () {
-        $.fn.form.settings.rules.validBattleTag = function (value) {
-            try {
-                if (value.indexOf("#") < 0) {
-                    return false;
-                }
-                var split = value.split("#");
-                return split.length === 2 && Number.isInteger(Number(split[1]));
-            } catch {
-                return false;
-            }
-        };
+        //$.fn.form.settings.rules.validBattleTag = function (value) {
+        //    try {
+        //        if (value.indexOf("#") < 0) {
+        //            return false;
+        //        }
+        //        var split = value.split("#");
+        //        return split.length === 2 && Number.isInteger(Number(split[1]));
+        //    } catch {
+        //        return false;
+        //    }
+        //};
 
         formRegister.form({
             fields: {
@@ -47,13 +46,6 @@
                     }, {
                         type: "match[password]",
                         prompt: "Passwords do not match"
-                    }]
-                },
-                battleTag: {
-                    identifier: "battletag",
-                    rules: [{
-                        type: "validBattleTag",
-                        prompt: "BattleTag™ is invalid"
                     }]
                 }
             },

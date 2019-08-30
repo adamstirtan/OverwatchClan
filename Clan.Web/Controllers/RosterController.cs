@@ -14,21 +14,19 @@ namespace Clan.Web.Controllers
         {
             var viewModel = new RosterViewModel
             {
-                Members = new List<User>
+                Members = new List<Member>
                 {
-                    new User
+                    new Member
                     {
                         Name = "rhaydeo",
-                        Email = "adam.stirtan@outlook.com",
                         Active = true,
                         BattleTag = "Rhaydeo#11799",
                         Created = DateTime.UtcNow,
                         Modified = DateTime.UtcNow
                     },
-                    new User
+                    new Member
                     {
                         Name = "lewzer",
-                        Email = "dave@gmail.com",
                         Active = true,
                         BattleTag = "lewzer#11799",
                         Created = DateTime.UtcNow,

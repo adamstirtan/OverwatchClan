@@ -6,6 +6,6 @@ namespace Clan.Web.ViewModels
 {
     public class RosterViewModel : BaseViewModel
     {
-        public ICollection<User> Members { get; set; }
+        public ICollection<Member> Members { get; set; }
     }
 }
